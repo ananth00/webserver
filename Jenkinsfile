@@ -1,7 +1,7 @@
 node{
      
     stage('SCM Checkout'){
-        git url: 'https://github.com/MithunTechnologiesDevOps/java-web-app-docker.git',branch: 'master'
+        git url: 'https://github.com/ananth00/websever/blob/master/Jenkinsfile.git',branch: 'master'
     }
     
     stage(" Maven Clean Package"){
@@ -17,8 +17,8 @@ node{
     }
     
     stage('Push Docker Image'){
-        withCredentials([string(credentialsId: 'Docker_Hub_Pwd', variable: 'Docker_Hub_Pwd')]) {
-          sh "docker login -u dockerhandson -p ${Docker_Hub_Pwd}"
+        withCredentials([string(credentialsId: 'shalushalu', variable: 'shalu2345')]) {
+          sh "docker login -u shalushalu -p ${shalu2345}"
         }
         sh 'docker push dockerhandson/java-web-app'
      }
