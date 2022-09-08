@@ -13,14 +13,14 @@ node{
     
     
     stage('Build Docker Image'){
-        sh 'docker build -t dockerhandson/java-web-app .'
+        sh 'docker build -t ananth00/webserver .'
     }
     
     stage('Push Docker Image'){
-        withCredentials([string(credentialsId: 'shalushalu', variable: 'shalu2345')]) {
-          sh "docker login -u shalushalu -p ${shalu2345}"
+        withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpassword')]) {
+          sh "docker login -u ananth007 -p ${dockerhubpassword}"
         }
-        sh 'docker push dockerhandson/java-web-app'
+        sh 'docker push ananth00/webserver'
      }
      
       stage('Run Docker Image In Dev Server'){
